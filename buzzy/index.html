@@ -147,6 +147,7 @@
 			border: 0;
 			left: 0;
 			z-index: 100;
+			opacity: 0.5;
 		}
 	</style>
 </head>
@@ -332,12 +333,26 @@
             });
         });
 
+        let s = 0
         document.querySelector('.sd').addEventListener('click', () => {
-        	let audio = document.getElementById('background-audio');
-        	audio.muted = false;
-        	audio.play().catch(error => {
-                console.log('False');
-            });
+        	if (s == 0) {
+        		s = 1
+        		document.querySelector('.sd').style.opacity = '1'
+        		let audio = document.getElementById('background-audio');
+	        	audio.muted = false;
+	        	audio.play().catch(error => {
+	                console.log('False');
+	            });
+        	}
+        	else {
+        		s = 0
+        		document.querySelector('.sd').style.opacity = '0.5'
+        		let audio = document.getElementById('background-audio');
+	        	audio.muted = true;
+	        	audio.play().catch(error => {
+	                console.log('False');
+	            });
+        	}
         })
 
         const elements = document.querySelectorAll('#tw');
