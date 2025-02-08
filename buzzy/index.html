@@ -35,6 +35,7 @@
 			z-index: 10;
 			transition: opacity 0.3s;
 			animation: light 3s infinite;
+			top: 0;
 		}
 
 		main {
@@ -50,6 +51,8 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			margin: 15px;
+    		padding-left: 50px;
 		}
 
 		.pc {
@@ -79,17 +82,6 @@
 		  .pc {
 		  	display: block;
 		  }
-
-		  .bg {
-		  	background-image: url('./img/bg.png');
-		  	max-width: 100vw;
-			position: absolute;
-		  }
-
-		  main {
-		  	position: relative;
-		  	top: auto;
-		  }
 		}
 
 		@media (width < 900px) {
@@ -103,6 +95,7 @@
 
 			.mobile {
 				max-width: 380px;
+				position: relative;
 			}
 
 			.bg {
@@ -113,6 +106,17 @@
 			main {
 				top: 0;
 				position: absolute;
+				max-width: 380px;
+				padding: 10px;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+			}
+
+			body {
+				display: flex;
+				align-items: center;
+				justify-content: center;
 			}
 		}
 	</style>
@@ -278,5 +282,19 @@
 			</div>
 		</main>
 	</div>
+	<audio id="background-audio" loop autoplay muted>
+        <source src="./assets/sound.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает элемент audio.
+    </audio>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const audio = document.getElementById('background-audio');
+            audio.muted = false;
+            audio.play().catch(error => {
+                console.log('False');
+            });
+        });
+    </script>
 </body>
 </html>
