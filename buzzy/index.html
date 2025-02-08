@@ -35,7 +35,7 @@
 			z-index: 10;
 			transition: opacity 0.3s;
 			animation: light 3s infinite;
-			top: 0;
+			height: 100%;
 		}
 
 		main {
@@ -119,6 +119,25 @@
 				justify-content: center;
 			}
 		}
+
+		@media (width >= 1400px) {
+		  .pc {
+		  	display: block;
+		  }
+
+		  main {
+		  	padding: 50px;
+		  }
+
+		  .light {
+		  	top: 0;
+		  }
+
+		  #guy {
+		  	width: 250px;
+		  	height: 430px;
+		  }
+		}
 	</style>
 </head>
 <body>
@@ -128,7 +147,7 @@
 				<img src="./img/light.png">
 			</div>
 			<div class="guy">
-				<img width="190px" height="340px" src="./img/guy.png">
+				<img id="guy" width="190px" height="340px" src="./img/guy.png">
 			</div>
 		</section>
 		<main>
